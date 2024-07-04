@@ -1,0 +1,42 @@
+body {
+  margin-top: 10vh;
+  background-color: rgb(35, 80, 172);
+}
+
+h1 {
+  text-align: center;
+}
+
+#gameboard {
+  margin: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 50vmin; /* 100% of the smallest between height and width of screen */
+  aspect-ratio: 1; /* square */
+  gap: 5px; /* you can also have gap*/
+}
+
+.tile {
+  background: rgb(156, 161, 233);
+  display: flex; /* or inline-flex */
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgb(8, 69, 86);
+  font-size: x-large;
+  color: rgb(2, 45, 52);
+}
+
+.blank {
+}
+
+#next {
+  display: block;
+  width: 20%;
+  margin: auto;
+  padding: 10px;
+  font-size: x-large;
+  color: rgb(2, 45, 52);
+  background-color: rgb(217, 221, 247);
+}
