@@ -1,9 +1,24 @@
+import GreedySearch from "./greedySearch.js";
+
 class Gameboard {
   constructor() {
     this.board = this.initGameboard();
     this.checkSolvable();
     this.drawBoard();
-    this.h1(this.board);
+    this.getPath();
+  }
+
+  getPath() {
+    if (this.solvable) {
+      let search = new GreedySearch(this.board);
+      search.solution.shift();
+      this.path = search.solution;
+    }
+  }
+
+  next() {
+    this.board = this.path.shift();
+    this.drawBoard();
   }
 
   drawBoard() {
@@ -28,11 +43,15 @@ class Gameboard {
             this.board[blank],
           ];
           this.drawBoard();
+          this.getPath();
         }
       });
       gameboardElem.appendChild(tileElem);
     }
-    if (!this.solvable) {
+    if (this.board.every((value, index) => value === this.goalBoard[index])) {
+      nextButton.innerHTML = "Solved";
+      nextButton.disabled = true;
+    } else if (!this.solvable) {
       nextButton.innerHTML = "Not Solvable";
       nextButton.disabled = true;
     } else {
@@ -67,7 +86,7 @@ class Gameboard {
     this.solvable = inversionCount % 2 === 0;
   }
 
-  expandState(state) {
+  getMovable(state) {
     let blank = state.indexOf(0);
     let movable = [];
     switch (blank) {
@@ -102,18 +121,19 @@ class Gameboard {
     return movable;
   }
 
-  h1(state) {
-    let h1 = 0;
-    for (let [index, value] of state.entries()) {
-      if (!(index == value)) {
-        h1++;
-      }
+  expandState(state) {
+    const movable = this.getMovable(state);
+    const blank = state.indexOf(0);
+    const frontier = [];
+    for (let index of movable) {
+      let newState = [...state];
+      [newState[index], newState[blank]] = [newState[blank], newState[index]];
+      frontier.push(newState);
     }
-    return h1;
   }
 
   drawMovable() {
-    this.movable = this.expandState(this.board);
+    this.movable = this.getMovable(this.board);
     const gameboard = document.getElementById("gameboard");
     for (let index of this.movable) {
       const elem = gameboard.children[index];

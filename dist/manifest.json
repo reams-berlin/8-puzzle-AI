@@ -1,0 +1,9 @@
+{
+  "name": "8-Puzzle AI Agent",
+  "short_name": "8-Puzzle AI",
+  "orientation": "portrait",
+  "display": "fullscreen",
+  "start_url": ".",
+  "description": "AI Agent for 8-Puzzle",
+  "background_color": "#ffffff"
+}

@@ -1,0 +1,36 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "http-server dist",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "css-loader": "^7.1.2",
+    "gh-pages": "^6.1.1",
+    "html-webpack-plugin": "^5.6.0",
+    "http-server": "^14.1.1",
+    "path": "^0.12.7",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.92.1",
+    "webpack-pwa-manifest": "^4.3.0",
+    "workbox-webpack-plugin": "^7.1.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  },
+  "name": "y",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reams-berlin/8-puzzle-AI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reams-berlin/8-puzzle-AI/issues"
+  },
+  "homepage": "https://github.com/reams-berlin/8-puzzle-AI#readme",
+  "description": ""
+}
