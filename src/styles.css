@@ -34,7 +34,7 @@ h1 {
 .blank {
 }
 #buttonGroup {
-  width: 30%;
+  width: 50vmin;
   margin: auto;
   display: flex;
 }
