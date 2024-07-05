@@ -25,6 +25,7 @@ class GreedySearch {
       return [node.state, ...path];
     }
   }
+
   isGoalState() {
     for (let i = 0; i < 9; i++) {
       if (!(this.state[i] == i)) {
@@ -33,6 +34,7 @@ class GreedySearch {
     }
     return true;
   }
+
   h1(state) {
     let h1 = 0;
     for (let [index, value] of state.entries()) {

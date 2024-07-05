@@ -121,17 +121,6 @@ class Gameboard {
     return movable;
   }
 
-  expandState(state) {
-    const movable = this.getMovable(state);
-    const blank = state.indexOf(0);
-    const frontier = [];
-    for (let index of movable) {
-      let newState = [...state];
-      [newState[index], newState[blank]] = [newState[blank], newState[index]];
-      frontier.push(newState);
-    }
-  }
-
   drawMovable() {
     this.movable = this.getMovable(this.board);
     const gameboard = document.getElementById("gameboard");
