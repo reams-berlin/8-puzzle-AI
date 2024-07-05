@@ -1,4 +1,4 @@
-import GreedySearch from "./greedySearch.js";
+import AStarSearch from "./AStarSearch.js";
 
 class Gameboard {
   constructor() {
@@ -10,7 +10,7 @@ class Gameboard {
 
   getPath() {
     if (this.solvable) {
-      let search = new GreedySearch(this.board);
+      let search = new AStarSearch(this.board);
       search.solution.shift();
       this.path = search.solution;
     }
